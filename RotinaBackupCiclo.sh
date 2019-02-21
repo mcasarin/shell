@@ -28,9 +28,9 @@ else
 fi
 
 if [[ $diasemana == $domingo ]]; then
-	exec "mysqldump -h localhost -u root -pmysqlbanco nitcabs -R --opt --single-transaction > $diretorio/FULL-$data.sql" && exec "tar czf $diretorio/FULL-$data.tar.gz $diretorio/FULL-$data.sql" && exec "rm -rf $diretorio/FULL-$data.sql"
+	exec "mysqldump -h localhost -u root -p[senhadobanco] nitcabs -R --opt --single-transaction > $diretorio/FULL-$data.sql" && exec "tar czf $diretorio/FULL-$data.tar.gz $diretorio/FULL-$data.sql" && exec "rm -rf $diretorio/FULL-$data.sql"
 else
-	exec "mysqldump -h localhost -u root -pmysqlbanco nitcabs --tables cartoes d`date +\%d\%m\%Y` empresas movvis visitantes operadores rede1 -R --opt --single-transaction > $diretorio/diario-$data.sql" && exec "tar czf $diretorio/diario-$data.tar.gz $diretorio/diario-$data.sql" && exec "rm -rf $diretrio/diario-$data.sql"
+	exec "mysqldump -h localhost -u root -p[senhadobanco] nitcabs --tables cartoes d`date +\%d\%m\%Y` empresas movvis visitantes operadores rede1 -R --opt --single-transaction > $diretorio/diario-$data.sql" && exec "tar czf $diretorio/diario-$data.tar.gz $diretorio/diario-$data.sql" && exec "rm -rf $diretrio/diario-$data.sql"
 fi 
 
 echo "FIM!"
